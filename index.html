@@ -15,18 +15,16 @@
 			margin: auto;
 			position: relative;
 		}
-		.magic{
-			position: absolute;
-			bottom: -15px;
-			right: 20px;
+		#save{
+			margin-left: 540px;
+			opacity: 1;
 		}
-		.magic:hover{
-			bottom: -15px;
-			right: 500px;
-			
+		#change{
+			margin-left: 20px;
+			opacity: 0;
 		}
 		.hide{
-			margin-left: 230px;
+			margin-left: 200px;
 			opacity: 0;
 		}
 	</style>
@@ -43,7 +41,8 @@
 				Player-2 Name: <input id='ply2' type="text" required="" name="player-2" />
 				<br/><br/>
 				
-				<input id="save" onmouseenter="fun()" class="magic" type="button" value="Click Me"/>
+				<input id="save" onmouseenter="fun()" type="button" value="Click Me"/>
+				<input id="change" onmouseenter="run()" type="button" value="Fill Form"/>
 				<input id="hidden" onmouseenter="fun()" class="hide" type="submit" value="Submit"/>
 			</fieldset>
 		</form>
@@ -52,12 +51,26 @@
 	<script type="text/javascript">
 		function fun(){
 			if(document.getElementById('ply1').value != "" && document.getElementById('ply2').value != ""){
-				document.getElementById('save').value = "submit";
+				document.getElementById('change').style.opacity="0";
 				document.getElementById('save').style.opacity="0";
 				document.getElementById('hidden').style.opacity="1";
 			}
 			else{
-				document.getElementById('save').value = "fill the form";
+				document.getElementById('change').style.opacity = "1";
+				document.getElementById('hidden').style.opacity="0";
+				document.getElementById('save').style.opacity="0";
+				document.getElementById('save').value="Fill Form";
+				
+			}
+		}
+		function run(){
+			if(document.getElementById('ply1').value != "" && document.getElementById('ply2').value != ""){
+				document.getElementById('change').style.opacity="0";
+				document.getElementById('save').style.opacity="0";
+				document.getElementById('hidden').style.opacity="1";
+			}
+			else{
+				document.getElementById('change').style.opacity = "0";
 				document.getElementById('hidden').style.opacity="0";
 				document.getElementById('save').style.opacity="1";
 				
